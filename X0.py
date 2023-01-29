@@ -15,12 +15,12 @@ print(" x - номер строки  ")
 print(" y - номер столбца ")
 print("-----------------------------------------------")
 
-def vybor():
+def choice():
     while True:
-        da_net = input('Введитете "да" или "нет": ')
-        if da_net == 'да':
+        choices = input('Введитете "да" или "нет": ')
+        if choices == 'да':
             return True
-        elif da_net == 'нет':
+        elif choices == 'нет':
             return False
         else:
             print("-----------------------------------------------")
@@ -36,7 +36,7 @@ def game_field():
         print(row_str)
         print("  --------------- ")
 
-def hod():
+def move():
     while True:
         cords = input("Введите номер строки и номер столбца \nчерез пробел: ").split()
         
@@ -94,9 +94,9 @@ def winner():
 
 
 print("               Вы готовы сыграть?               ")
-vyb = vybor()
+ch = choice()
 
-while vyb is True:
+while ch is True:
     print("-----------------------------------------------")
     print("               Отлично! Начнем!                ")
     print("-----------------------------------------------")
@@ -119,7 +119,7 @@ while vyb is True:
             print(f"Ходит {player_0}!")
             print("-----------------------------------------------")
 
-        x, y = hod()
+        x, y = move()
 
         if count % 2 == 1:
             field[x][y] = 'X'
@@ -128,7 +128,7 @@ while vyb is True:
 
         if winner():
             print("Сыграем еще раз?")
-            vyb = vybor()
+            ch = choice()
             break
 
         if count == 9:
@@ -137,7 +137,7 @@ while vyb is True:
             print("                    Ничья!                     ")
             print("-----------------------------------------------")
             print("Сыграем еще раз?")
-            vyb = vybor()
+            ch = choice()
             break
 
 
